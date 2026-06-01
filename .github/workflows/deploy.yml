@@ -16,5 +16,5 @@ jobs:
 
           script: |
             set -e
-            cd /var/www/mis_huevos
+            cd /var/www/mis_webos
             git pull

@@ -1,12 +1,20 @@
-name: Deploy Laravel Sail (Local)
+name: Deploy(Remoto)
 on:
   push:
     branches: [ "main" ]
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - name: Deploy (Local) con Sail
-        run: |
-          cd /home/lucci/Escritorio/mis_huevos
-          git pull
+      - name: Deploy (Remoto)
+        uses: appleboy/ssh-action@master
+
+        with:
+          host: ${{ secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USER}}
+          key: ${{secrets.EC2_KEY}}
+
+          script: |
+            set -e
+            cd /var/www/mis_huevos
+            git pull

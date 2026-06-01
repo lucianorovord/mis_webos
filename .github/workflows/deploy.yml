@@ -15,7 +15,7 @@ jobs:
           key: ${{secrets.EC2_KEY}}
 
           script: |
-            set -e
-            git config --global --add safe.directory /var/www/mis_webos
-            cd /var/www/mis_webos
-            git pull
+            sudo set -e
+            sudo git config --global --add safe.directory /var/www/mis_webos
+            sudo cd /var/www/mis_webos
+            sudo git pull
